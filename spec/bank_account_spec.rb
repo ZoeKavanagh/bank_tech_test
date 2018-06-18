@@ -17,4 +17,12 @@ describe BankAccount do
       expect(new_account.balance).to eq 2000
     end
   end
+
+  describe '#withdrawl' do
+    it 'should reduce the correct ammount from account balance' do
+      new_account.deposit(2000)
+      new_account.withdrawl(500)
+      expect(new_account.balance).to eq 1500
+    end
+  end
 end
