@@ -10,10 +10,24 @@ describe TransactionHistory do
     end
   end
 
-  describe '#add_to_log' do
+  describe '#add_credit' do
     it 'should add transaction amount when money is deposited' do
-      new_account.deposit(2000)
-      expect(transaction_history.transaction_log).to include(:balance)
+      transaction_history.add_credit(2000, "19-06-2018", 2000)
+      expect(transaction_history.transaction_log[0][:credit]).to eq(2000)
+    end
+  end
+
+  describe '#add_credit' do
+    it 'should add transaction date when money is deposited' do
+      transaction_history.add_credit(2000, "19-06-2018", 2000)
+      expect(transaction_history.transaction_log[0][:date]).to eq("19-06-2018")
+    end
+  end
+
+  describe '#add_credit' do
+    it 'should add transaction date when money is deposited' do
+      transaction_history.add_credit(2000, "19-06-2018", 2000)
+      expect(transaction_history.transaction_log[0][:balance]).to eq(2000)
     end
   end
 end
