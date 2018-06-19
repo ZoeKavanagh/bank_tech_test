@@ -26,6 +26,10 @@ describe BankAccount do
       new_account.deposit(4000, "19-06-2018")
       expect(transaction_history).to have_received(:add_credit)
     end
+
+    it 'should raise and error if user tries to deposit a negative value' do
+      expect { new_account.deposit(-300) }.to raise_error("Cannot deposit a negative value")
+    end
   end
 
   describe '#withdraw' do
@@ -33,6 +37,15 @@ describe BankAccount do
       new_account.deposit(2000)
       new_account.withdraw(500)
       expect(new_account.balance).to eq 1500
+    end
+
+    it 'should raise an error if user tries to withdraw from balance of 0' do
+      expect { new_account.withdraw(500) }.to raise_error("Cannot withdraw funds no funds in account")
+    end
+
+    it 'should raise an error if user tries to withdraw a negative value' do
+      new_account.deposit(500)
+      expect { new_account.withdraw(-300) }.to raise_error("Cannot withdraw a negative value")
     end
 
     it 'should add details of withdrawl transaction to transaction log' do
