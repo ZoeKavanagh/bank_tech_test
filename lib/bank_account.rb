@@ -16,6 +16,7 @@ class BankAccount
 
   def withdraw(amount)
     @balance -= amount
+    @transaction_log.add_debit(amount, date, @balance)
   end
 
 end
