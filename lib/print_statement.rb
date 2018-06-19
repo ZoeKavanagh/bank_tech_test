@@ -1,5 +1,6 @@
-class PrintStatement
+# frozen_string_literal: true
 
+class PrintStatement
   attr_reader :transaction_log, :print_statement
 
   def initialize(transaction_log)
@@ -8,10 +9,10 @@ class PrintStatement
 
   def print_statement
     spacing = 10
-      print "Date    || Credit || Debit || balance\n"
+    print "Date    || Credit || Debit || balance\n"
     @statement.each do |transaction|
       print "#{transaction[:date]} "
-      print  "|| #{transaction[:credit]} "
+      print "|| #{transaction[:credit]} "
       print "|| #{transaction[:debit]} "
       print "|| #{transaction[:balance]}\n"
     end

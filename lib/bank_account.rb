@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'date'
 require_relative 'transaction_history'
 require_relative 'print_statement'
@@ -12,7 +14,7 @@ class BankAccount
     @transaction_log = transaction_log.new
   end
 
-  def deposit(amount, date=DateTime.now.strftime("%d-%m-%Y"))
+  def deposit(amount, date = DateTime.now.strftime('%d-%m-%Y'))
     raise 'Cannot deposit a negative value' if amount <= MINIMUM_BALANCE
     @balance += amount
     @transaction_log.add_credit(amount, date, @balance)
@@ -25,7 +27,7 @@ class BankAccount
     @transaction_log.add_debit(amount, date, @balance)
   end
 
-  def print_bank_statement(statement=PrintStatement.new(@transaction_log.transaction_log))
+  def print_bank_statement(statement = PrintStatement.new(@transaction_log.transaction_log))
     @statement = statement
     @statement.print_statement
   end

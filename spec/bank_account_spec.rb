@@ -1,12 +1,13 @@
+# frozen_string_literal: true
+
 require 'bank_account'
 require 'transaction_history'
 
 describe BankAccount do
   let(:new_account) { BankAccount.new(transaction_history) }
   let(:transaction_history) { spy :transaction_history }
-  let(:transaction_log) { [{ :debit => " ", :credit => 2000, :date => "19-06-2018", :balance => 4000 }] }
-  let(:printstatement) { double :print_statement, print_statement: "Date    || Credit || Debit || balance\n19-06-2018 || 2000 ||   || 4000\n"}
-
+  let(:transaction_log) { [{ debit: ' ', credit: 2000, date: '19-06-2018', balance: 4000 }] }
+  let(:printstatement) { double :print_statement, print_statement: "Date    || Credit || Debit || balance\n19-06-2018 || 2000 ||   || 4000\n" }
 
   it { is_expected.to respond_to :balance }
 
@@ -23,12 +24,12 @@ describe BankAccount do
     end
 
     it 'should add details of deposit transaction to transaction log' do
-      new_account.deposit(4000, "19-06-2018")
+      new_account.deposit(4000, '19-06-2018')
       expect(transaction_history).to have_received(:add_credit)
     end
 
     it 'should raise and error if user tries to deposit a negative value' do
-      expect { new_account.deposit(-300) }.to raise_error("Cannot deposit a negative value")
+      expect { new_account.deposit(-300) }.to raise_error('Cannot deposit a negative value')
     end
   end
 
@@ -40,16 +41,16 @@ describe BankAccount do
     end
 
     it 'should raise an error if user tries to withdraw from balance of 0' do
-      expect { new_account.withdraw(500) }.to raise_error("Cannot withdraw funds no funds in account")
+      expect { new_account.withdraw(500) }.to raise_error('Cannot withdraw funds no funds in account')
     end
 
     it 'should raise an error if user tries to withdraw a negative value' do
       new_account.deposit(500)
-      expect { new_account.withdraw(-300) }.to raise_error("Cannot withdraw a negative value")
+      expect { new_account.withdraw(-300) }.to raise_error('Cannot withdraw a negative value')
     end
 
     it 'should add details of withdrawl transaction to transaction log' do
-      new_account.deposit(1000, "19-06-2018")
+      new_account.deposit(1000, '19-06-2018')
       new_account.withdraw(500)
       expect(transaction_history).to have_received(:add_debit)
     end
