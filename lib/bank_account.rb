@@ -1,8 +1,9 @@
 require 'date'
 require_relative 'transaction_history'
+require_relative 'print_statement'
 
 class BankAccount
-  attr_reader :balance, :date, :amount, :transaction_log, :add_credit
+  attr_reader :balance, :date, :amount, :transaction_log, :add_credit, :print_statement
 
   def initialize(transaction_log = TransactionHistory)
     @balance = 0
@@ -19,6 +20,8 @@ class BankAccount
     @transaction_log.add_debit(amount, date, @balance)
   end
 
-  def print_statement
+  def print_bank_statement(statement=PrintStatement.new(@transaction_log.transaction_log))
+    @statement = statement
+    @statement.print_statement
   end
 end

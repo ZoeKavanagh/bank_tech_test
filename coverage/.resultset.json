@@ -9,7 +9,8 @@
         7,
         7,
         1,
-        1,
+        2,
+        null,
         null,
         2,
         null,
@@ -47,7 +48,7 @@
         null,
         1,
         1,
-        2,
+        1,
         null,
         null,
         null
@@ -55,6 +56,7 @@
       "/Users/zoekavanagh/Projects/bank_tech_test/lib/bank_account.rb": [
         1,
         1,
+        1,
         null,
         1,
         1,
@@ -74,6 +76,8 @@
         2,
         null,
         null,
+        1,
+        1,
         1,
         null,
         null
@@ -98,21 +102,6 @@
         null,
         null
       ],
-      "/Users/zoekavanagh/Projects/bank_tech_test/spec/print_statement_spec.rb": [
-        1,
-        null,
-        1,
-        2,
-        2,
-        null,
-        1,
-        1,
-        2,
-        null,
-        null,
-        null,
-        null
-      ],
       "/Users/zoekavanagh/Projects/bank_tech_test/lib/print_statement.rb": [
         1,
         null,
@@ -130,6 +119,21 @@
         1,
         1,
         1,
+        null,
+        null,
+        null
+      ],
+      "/Users/zoekavanagh/Projects/bank_tech_test/spec/print_statement_spec.rb": [
+        1,
+        null,
+        1,
+        2,
+        2,
+        null,
+        1,
+        1,
+        2,
+        null,
         null,
         null,
         null
@@ -182,6 +186,6 @@
         null
       ]
     },
-    "timestamp": 1529422668
+    "timestamp": 1529424563
   }
 }

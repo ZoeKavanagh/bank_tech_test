@@ -5,7 +5,8 @@ describe BankAccount do
   let(:new_account) { BankAccount.new(transaction_history) }
   let(:transaction_history) { spy :transaction_history }
   let(:transaction_log) { [{ :debit => " ", :credit => 2000, :date => "19-06-2018", :balance => 4000 }] }
-  let(:printstatement) { spy :print_statement }
+  let(:printstatement) { double :print_statement, print_statement: "Date    || Credit || Debit || balance\n19-06-2018 || 2000 ||   || 4000\n"}
+
 
   it { is_expected.to respond_to :balance }
 
@@ -43,7 +44,7 @@ describe BankAccount do
 
   describe '#print_bank_statement' do
     it 'should take the transaction_log and print to the console' do
-      expect { new_account.print_bank_statement(:transaction_log) }.to output("Date    || Credit || Debit || balance\n19-06-2018 || 2000 ||   || 4000\n").to_stdout
+      expect(new_account.print_bank_statement(printstatement)).to eq("Date    || Credit || Debit || balance\n19-06-2018 || 2000 ||   || 4000\n")
     end
   end
 end

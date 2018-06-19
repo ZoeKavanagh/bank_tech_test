@@ -1,6 +1,6 @@
 class PrintStatement
 
-  attr_reader :transaction_log
+  attr_reader :transaction_log, :print_statement
 
   def initialize(transaction_log)
     @statement = transaction_log
