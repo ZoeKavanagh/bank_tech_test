@@ -4,7 +4,7 @@ class PrintStatement
   attr_reader :transaction_log, :print_statement
 
   def initialize(transaction_log)
-    @statement = transaction_log
+    @statement = transaction_log.reverse
   end
 
   def print_statement

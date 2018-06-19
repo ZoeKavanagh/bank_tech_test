@@ -14,13 +14,13 @@ class BankAccount
     @transaction_log = transaction_log.new
   end
 
-  def deposit(amount, date = DateTime.now.strftime('%d-%m-%Y'))
+  def deposit(amount, date=DateTime.now.strftime('%d-%m-%Y'))
     raise 'Cannot deposit a negative value' if amount <= MINIMUM_BALANCE
     @balance += amount
     @transaction_log.add_credit(amount, date, @balance)
   end
 
-  def withdraw(amount)
+  def withdraw(amount, date=DateTime.now.strftime('%d-%m-%Y'))
     raise 'Cannot withdraw funds no funds in account' if balance <= MINIMUM_BALANCE
     raise 'Cannot withdraw a negative value' if amount <= MINIMUM_BALANCE
     @balance -= amount
