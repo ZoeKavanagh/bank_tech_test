@@ -19,4 +19,6 @@ class BankAccount
     @transaction_log.add_debit(amount, date, @balance)
   end
 
+  def print_statement
+  end
 end

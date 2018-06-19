@@ -38,4 +38,8 @@ describe BankAccount do
       expect(transaction_history).to have_received(:add_debit)
     end
   end
+
+  describe '#print_statement' do
+    it 'should '
+  end
 end
