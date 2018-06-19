@@ -31,5 +31,11 @@ describe BankAccount do
       new_account.withdraw(500)
       expect(new_account.balance).to eq 1500
     end
+
+    it 'should add details of withdrawl transaction to transaction log' do
+      new_account.deposit(1000, "19-06-2018")
+      new_account.withdraw(500)
+      expect(transaction_history).to have_received(:add_debit)
+    end
   end
 end
