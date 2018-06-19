@@ -4,9 +4,9 @@ require_relative 'transaction_history'
 class BankAccount
   attr_reader :balance, :date, :amount, :transaction_log, :add_credit
 
-  def initialize
+  def initialize(transaction_log = TransactionHistory)
     @balance = 0
-    @transaction_log = TransactionHistory.new
+    @transaction_log = transaction_log.new
   end
 
   def deposit(amount, date=DateTime.now.strftime("%d-%m-%Y"))
@@ -14,7 +14,7 @@ class BankAccount
     @transaction_log.add_credit(amount, date, @balance)
   end
 
-  def withdrawl(amount)
+  def withdraw(amount)
     @balance -= amount
   end
 

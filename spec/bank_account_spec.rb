@@ -1,7 +1,9 @@
 require 'bank_account'
+require 'transaction_history'
 
 describe BankAccount do
-  let(:new_account) { BankAccount.new }
+  let(:new_account) { BankAccount.new(transaction_history) }
+  let(:transaction_history) { spy :transaction_history }
 
   it { is_expected.to respond_to :balance }
 
@@ -16,12 +18,17 @@ describe BankAccount do
       new_account.deposit(2000)
       expect(new_account.balance).to eq 2000
     end
+
+    it 'should add details of deposit transaction to transaction log' do
+      new_account.deposit(4000, "19-06-2018")
+      expect(transaction_history).to have_received(:add_credit)
+    end
   end
 
-  describe '#withdrawl' do
+  describe '#withdraw' do
     it 'should reduce the correct ammount from account balance' do
       new_account.deposit(2000)
-      new_account.withdrawl(500)
+      new_account.withdraw(500)
       expect(new_account.balance).to eq 1500
     end
   end

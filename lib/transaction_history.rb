@@ -1,5 +1,3 @@
-require 'bank_account'
-
 class TransactionHistory
 
   attr_reader :transaction_log, :add_credit, :date, :balance, :credit, :debit

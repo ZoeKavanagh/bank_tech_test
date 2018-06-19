@@ -2,7 +2,6 @@ require 'transaction_history'
 
 describe TransactionHistory do
   let(:transaction_history) { TransactionHistory.new }
-  let(:new_account) { BankAccount.new }
 
   describe '#initialize' do
     it 'should initialise with an empty #transaction_log array' do
