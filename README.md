@@ -35,5 +35,17 @@ Firstly, clone my repo. Then run the following commands in your command line:
 ~~~
 bundle install
 irb
-require './spec/feature_tests'
+require './spec/bank_account'
+> my_account = BankAccount.new
+> my_account.deposit(500)
+> my_account.withdraw(200)
+> my_account.print_bank_statement
 ~~~
+You should get something like this . .
+![Alt text](./images/irb.pgn)
+
+#### Testing
+
+I maganged to acheive 100% text coverage.
+
+![Alt text](./images/testcoverage.png)

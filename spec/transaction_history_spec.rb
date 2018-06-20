@@ -14,7 +14,7 @@ describe TransactionHistory do
   describe '#add_credit' do
     it 'should add transaction amount when money is deposited' do
       transaction_history.add_credit(2000, '19-06-2018', 2000)
-      expect(transaction_history.transaction_log[0][:credit]).to eq(2000)
+      expect(transaction_history.transaction_log[0][:credit]).to eq("2000.00")
     end
 
     it 'should add transaction date when money is deposited' do
@@ -24,14 +24,14 @@ describe TransactionHistory do
 
     it 'should add transaction balance when money is deposited' do
       transaction_history.add_credit(2000, '19-06-2018', 2000)
-      expect(transaction_history.transaction_log[0][:balance]).to eq(2000)
+      expect(transaction_history.transaction_log[0][:balance]).to eq("2000.00")
     end
   end
 
   describe '#add_debit' do
     it 'should add transaction amount when money is withdrawn' do
       transaction_history.add_debit(1000, '19-06-2018', 1000)
-      expect(transaction_history.transaction_log[0][:debit]).to eq(1000)
+      expect(transaction_history.transaction_log[0][:debit]).to eq("1000.00")
     end
 
     it 'should add transaction date when money is withdrawn' do
@@ -41,7 +41,7 @@ describe TransactionHistory do
 
     it 'should add transaction balance when money is deposited' do
       transaction_history.add_debit(1000, '19-06-2018', 1000)
-      expect(transaction_history.transaction_log[0][:balance]).to eq(1000)
+      expect(transaction_history.transaction_log[0][:balance]).to eq("1000.00")
     end
   end
 end
