@@ -42,7 +42,7 @@ require './spec/bank_account'
 > my_account.print_bank_statement
 ~~~
 You should get something like this . .
-![Alt text](./images/irb.pgn)
+![Alt text](./images/irb.png)
 
 #### Testing
 
