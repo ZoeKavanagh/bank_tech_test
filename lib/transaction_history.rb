@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 class TransactionHistory
-  attr_reader :transaction_log, :add_credit, :add_credit, :date, :balance, :credit, :debit
+
+attr_reader :transaction_log
 
   def initialize
     @transaction_log = []
