@@ -44,4 +44,12 @@ describe TransactionHistory do
       expect(transaction_history.transaction_log[0][:balance]).to eq("1000.00")
     end
   end
+
+  describe '#get_transactions' do
+    it 'should return an array of transactions' do
+      transaction_history.add_credit(1000, '19-06-2018', 1000)
+      transaction_history.add_credit(2000, '20-06-2018', 3000)
+      expect(transaction_history.get_transactions).to eq([{:debit=>" ", :credit=>"2000.00", :date=>"20-06-2018", :balance=>"3000.00"}, {:debit=>" ", :credit=>"1000.00", :date=>"19-06-2018", :balance=>"1000.00"}])
+    end
+  end
 end

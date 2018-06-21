@@ -15,4 +15,9 @@ attr_reader :transaction_log
   def add_debit(amount, date, balance)
     @transaction_log << { debit: sprintf('%.2f',amount), credit: ' ', date: date, balance: sprintf('%.2f',balance) }
   end
+
+  def get_transactions
+    @transaction_log.reverse
+  end
+
 end

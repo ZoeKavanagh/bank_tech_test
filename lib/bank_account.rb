@@ -31,7 +31,7 @@ class BankAccount
   end
 
   def print_bank_statement
-    statement = @transaction_log.transaction_log.reverse
+    statement = @transaction_log.get_transactions
     @printer.print_statement(statement)
   end
 end
