@@ -2,12 +2,15 @@
 
 #### What is the problem that needs solving?
 
-You should be able to interact with your code via a REPL like IRB. (You don't need to implement a command line interface that takes input from STDIN.)
+You should be able to interact with the code via a REPL, for example IRB. (You don't need to implement a command line interface that takes input from STDIN.)
 
-Deposits, withdrawal.
+You should be able to deposit cash amounts to your bank account and withdraw amounts from your account.
 
-Account statement (date, amount, balance) printing.
+You should also be able to print your account statement, which includes the date, type of transaction (credit or debit), the amount transacted and the balance following each transaction.
+
 Data can be kept in memory (it doesn't need to be stored to a database or anything).
+
+Your statment will be printed to the console as per the below format:
 
 ```
 date || credit || debit || balance
@@ -19,7 +22,7 @@ date || credit || debit || balance
 
 I took a TDD approach to meeting the above requirements - this means that I started by writing tests before building my code.
 
-I also took an Object Orientated approach to the design of my app.  I identified the three core functionalities that were required: Logging transactions, withdraw/deposit capabilities, printing the statement to the console.
+I also took an Object Orientated approach to the design of my app.  I identified the three core functionalities that were required: Logging the transactions, maintaining the balance with 'withdraw/deposit' capabilities, printing the statement to the console.  
 
 Whilst taking a TDD approach, I also created a test version of the app, which allowed me to test various ways of creating a solution before implementing the code.
 
