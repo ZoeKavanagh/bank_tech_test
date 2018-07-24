@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'bank_account'
-require 'transaction_history'
+
 
 describe BankAccount do
   let(:new_account) { BankAccount.new(transaction_history, printer) }

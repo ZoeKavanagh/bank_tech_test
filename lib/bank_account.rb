@@ -4,6 +4,12 @@ require 'date'
 require_relative 'transaction_history'
 require_relative 'print_statement'
 
+class NegativeDepositError < StandardError; end
+
+class NegativeFundsError < StandardError; end
+
+class NegativeWithdrawError< StandardError; end
+
 class BankAccount
   MINIMUM_BALANCE = 0
   MINIMUM_VALUE = 0
@@ -18,14 +24,14 @@ class BankAccount
   end
 
   def deposit(amount, date=TODAYS_DATE)
-    raise 'Cannot deposit a negative value' if amount <= MINIMUM_VALUE
+    raise NegativeDepositError, 'Cannot deposit a negative value' if amount <= MINIMUM_VALUE
     @balance += amount
     @transaction_log.add_credit(amount, date, @balance)
   end
 
   def withdraw(amount, date=TODAYS_DATE)
-    raise 'Cannot withdraw funds no funds in account' if balance <= MINIMUM_BALANCE
-    raise 'Cannot withdraw a negative value' if amount <= MINIMUM_VALUE
+    raise NegativeFundsError, 'Cannot withdraw funds no funds in account' if balance <= MINIMUM_BALANCE || amount > balance 
+    raise NegativeWithdrawError, 'Cannot withdraw a negative value' if amount <= MINIMUM_VALUE
     @balance -= amount
     @transaction_log.add_debit(amount, date, @balance)
   end

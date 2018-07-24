@@ -2,15 +2,15 @@
 
 #### What is the problem that needs solving?
 
-You should be able to interact with the code via a REPL, for example IRB. (You don't need to implement a command line interface that takes input from STDIN.)
+You should be able to interact with the code via a REPL, for example IRB. (There is no requirement to implement a command line interface that takes input from STDIN.)
 
 You should be able to deposit cash amounts to your bank account and withdraw amounts from your account.
 
-You should also be able to print your account statement, which includes the date, type of transaction (credit or debit), the amount transacted and the balance following each transaction.
+You should also be able to print your account statement, which includes the date, type of transaction (credit or debit), the amount transacted and the balance following each transaction.  Transaction should be printed to with the latest transaction at the top.
 
 Data can be kept in memory (it doesn't need to be stored to a database or anything).
 
-Your statment will be printed to the console as per the below format:
+Your statement will be printed to the console as per the below format:
 
 ```
 date || credit || debit || balance
@@ -49,6 +49,6 @@ You should get something like this . .
 
 #### Testing
 
-I maganged to acheive 100% text coverage.
+Through my TDD approach to building this Bank Account, I managed to achieve 100% text coverage from the start and was able to maintain high coverage for the continuation of my build.
 
 ![Alt text](./images/testcoverage.png)
